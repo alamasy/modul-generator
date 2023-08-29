@@ -16,7 +16,6 @@ daftarHSBarang.forEach(barang => {
     listHSCode.push(hsCode);
 });
 
-
 console.log(listHSCode.length);
 
 // ==========    PERIKSA LARTAS UNTUK TIAP HS CODE    ==========

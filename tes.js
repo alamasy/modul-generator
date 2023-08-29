@@ -1,17 +1,32 @@
-const fs = require("fs");
 
-const data = {
-    name: "John",
-    age: 30,
-    city: "New York",
-};
+function generateBarangTarif(arr) {
+    const res = [];
 
-const jsonData = JSON.stringify(data);
+    const len = arr.length;
+    const jenisTarif = ["BM", "PPN", "PPH"];
+    const codeFasilitas = ["2", "5", "5"];
 
-fs.writeFile("data.json", jsonData, (err) => {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log("Data written to file successfully!");
+    for (let i = 1; i <= len; i++) {
+
+        for (let j = 0; j < jenisTarif.length; j++) {
+            const temp = {};
+            const tarif = arr[i][jenisTarif[j]];
+
+            temp["NO AJU"] = "123456";
+            temp["SERI BARANG"] = i;
+            temp["JENIS TARIF"] = jenisTarif[j];
+            temp["KODE FASILITAS"] = codeFasilitas[j];
+            temp["TARIF"] = tarif;
+
+            res.push(temp);
+        }
+
     }
-});
+
+    return res;
+
+}
+
+const arrrr = ["1234", "1234", "1234", "1234"];
+
+generateBarangTarif(arrrr);
